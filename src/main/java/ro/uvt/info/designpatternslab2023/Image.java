@@ -1,11 +1,23 @@
 package ro.uvt.info.designpatternslab2023;
 
+import java.util.concurrent.TimeUnit;
+
 public class Image implements Element{
+
     private String imagename;
 
     Image(String imagename){
         this.imagename = imagename;
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
+
+
+
+
 
     @Override
     public void print(){
