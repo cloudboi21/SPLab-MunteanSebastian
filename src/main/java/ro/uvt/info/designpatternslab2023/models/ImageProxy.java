@@ -1,8 +1,9 @@
 package ro.uvt.info.designpatternslab2023;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
+import ro.uvt.info.designpatternslab2023.models.Element;
 
-public class ImageProxy implements Element{
+import java.util.Objects;
+
+public class ImageProxy implements Element {
     private String imagename;
     private Image realImage= null;
 

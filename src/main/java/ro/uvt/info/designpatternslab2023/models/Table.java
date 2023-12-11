@@ -1,21 +1,17 @@
 package ro.uvt.info.designpatternslab2023;
 
-public class Paragraph implements Element{
+import ro.uvt.info.designpatternslab2023.models.Element;
+
+public class Table implements Element {
     private String name;
-    private AlignStrategy align;
-    public Paragraph(String name){
+    public Table(String name){
         this.name = name;
-        align = new AlignLeft();
     }
 
     @Override
     public void print(){
-        if(align == null)
-            System.out.println("Paragraph: " + name);
-        else
-            align.render(name);
+        System.out.println("Table name: " + name);
     }
-
 
     @Override
     public void add(Element e) {
@@ -30,10 +26,5 @@ public class Paragraph implements Element{
     @Override
     public Element get(int i) {
         throw new UnsupportedOperationException();
-    }
-
-
-    public void setAlignStrategy(AlignStrategy align) {
-        this.align = align;
     }
 }

@@ -1,9 +1,11 @@
 package ro.uvt.info.designpatternslab2023;
 
+import ro.uvt.info.designpatternslab2023.models.Element;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section implements Element{
+public class Section implements Element {
     private String title;
     private List<Element> children = new ArrayList<>();
 

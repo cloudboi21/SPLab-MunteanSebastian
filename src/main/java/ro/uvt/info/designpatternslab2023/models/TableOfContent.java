@@ -1,6 +1,8 @@
 package ro.uvt.info.designpatternslab2023;
 
-public class TableOfContent implements Element{
+import ro.uvt.info.designpatternslab2023.models.Element;
+
+public class TableOfContent implements Element {
     public void print(){
         System.out.println("Sample");
     }

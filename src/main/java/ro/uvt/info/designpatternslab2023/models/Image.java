@@ -1,8 +1,10 @@
 package ro.uvt.info.designpatternslab2023;
 
+import ro.uvt.info.designpatternslab2023.models.Element;
+
 import java.util.concurrent.TimeUnit;
 
-public class Image implements Element{
+public class Image implements Element {
 
     private String imagename;
 
