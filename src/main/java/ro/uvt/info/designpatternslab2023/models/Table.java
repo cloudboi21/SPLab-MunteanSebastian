@@ -1,30 +1,24 @@
-package ro.uvt.info.designpatternslab2023;
+package ro.uvt.info.designpatternslab2023.models;
 
-import ro.uvt.info.designpatternslab2023.models.Element;
+import jakarta.persistence.Entity;
+import lombok.NoArgsConstructor;
 
-public class Table implements Element {
-    private String name;
-    public Table(String name){
-        this.name = name;
+@Entity
+@NoArgsConstructor(force = true)
+public class Table extends BaseElement implements Visitee {
+
+    private String title;
+
+    public Table(String title) {
+        this.title = title;
     }
 
     @Override
-    public void print(){
-        System.out.println("Table name: " + name);
+    public void accept(Visitor visitor) {
+        visitor.visitTable(this);
     }
 
-    @Override
-    public void add(Element e) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void removeElement(Element e) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Element get(int i) {
-        throw new UnsupportedOperationException();
+    public String getTitle() {
+        return this.title;
     }
 }

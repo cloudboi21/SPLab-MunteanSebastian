@@ -1,41 +1,39 @@
-package ro.uvt.info.designpatternslab2023;
-import ro.uvt.info.designpatternslab2023.models.Element;
+package ro.uvt.info.designpatternslab2023.models;
 
-import java.util.Objects;
+import jakarta.persistence.Entity;
+import lombok.NoArgsConstructor;
 
-public class ImageProxy implements Element {
-    private String imagename;
-    private Image realImage= null;
+import java.awt.*;
+@Entity
+@NoArgsConstructor(force = true)
+public class ImageProxy extends BaseElement implements  Picture, Visitee{
+    private String url;
+    private Dimension dim;
+    private Image realImage;
 
-    public ImageProxy(String imagename) {
-        this.imagename = imagename;
+    public ImageProxy(String url) {
+        this.url = url;
+        this.realImage = null;
     }
 
-    private void loadRealImage() {
-        if (Objects.isNull(realImage)) {
-            realImage = new Image(this.imagename);
+    public Image loadImage() {
+        if (realImage == null) {
+            realImage = new Image(url);
         }
+        return realImage;
     }
 
     @Override
-    public void print() {
-        loadRealImage();
-        realImage.print();
+    public String url() {
+        return url;
     }
 
     @Override
-    public void add(Element e) {
-        throw new UnsupportedOperationException();
+    public Dimension dim() {
+        return dim;
     }
-
     @Override
-    public void removeElement(Element e) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Element get(int i) {
-        throw new UnsupportedOperationException();
+    public void accept(Visitor visitor) {
+        visitor.visitImageProxy(this);
     }
 }
-

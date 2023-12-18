@@ -1,23 +1,9 @@
-package ro.uvt.info.designpatternslab2023;
+package ro.uvt.info.designpatternslab2023.models;
 
-import ro.uvt.info.designpatternslab2023.models.Element;
-
-public class TableOfContent implements Element {
-    public void print(){
-        System.out.println("Sample");
-    }
-    @Override
-    public void add(Element e){
-        throw new UnsupportedOperationException();
-    }
+class TableOfContents extends BaseElement implements Visitee {
 
     @Override
-    public void removeElement(Element e){
-        throw new UnsupportedOperationException();
-    }
+    public void accept(Visitor visitor) {
 
-    @Override
-    public Element get(int i){
-        throw new UnsupportedOperationException();
     }
 }

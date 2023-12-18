@@ -1,5 +1,7 @@
-package ro.uvt.info.designpatternslab2023;
+package ro.uvt.info.designpatternslab2023.services;
+
+import ro.uvt.info.designpatternslab2023.models.Context;
 
 public interface AlignStrategy {
-    void render(String text);
+    public void render(String paragraph, Context context);
 }
